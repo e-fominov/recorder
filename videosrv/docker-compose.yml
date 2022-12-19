@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  videosrv: 
+    image: video-server:latest
+    environment:
+      - RUST_LOG=debug
+      - LOG_DIR=/app/logs
+    volumes:
+      - ${PWD}/config.yml:/app/config.yml
+      - ${PWD}/video:/video
+    ports:
+      - "8080:8080"
+  

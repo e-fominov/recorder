@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>videojs-contrib-hls embed</title>
+
+    <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+</head>
+<body>
+<h1>Exported video example player</h1>
+<h2>Path: <input id="path" type="text" name="form-text" value="cam1/240p/221219T000000-221220T000000/playlist.m3u8"></h2>
+
+<h2>
+    <button id="btn_rec" class="ui-button ui-widget ui-corner-all" onclick="onRecClick()">Rec (time)</button>
+</h2>
+<video-js id="video_rec" class="vjs-default-skin" controls preload="auto" width="640" height="480" style="display: none;">
+</video-js>
+
+<div id="remoteVideos"></div>
+<div id="div"></div>
+
+<script src="https://unpkg.com/video.js/dist/video.js"></script>
+<script src="https://unpkg.com/@videojs/http-streaming/dist/videojs-http-streaming.js"></script>
+
+<script>
+</script>
+
+<script>
+    function onRecClick() {
+        document.getElementById("video_rec").style.display = "block";
+
+        let player = videojs('video_rec');
+        let path = document.getElementById("path").value;
+        player.src({ type: 'application/x-mpegURL', src: '/rec/' + path });
+
+        window.player = player;
+        player.on('canplay',
+            ()=>player.play()
+        );
+    }
+</script>
+</body>
