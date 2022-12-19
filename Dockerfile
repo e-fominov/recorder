@@ -16,9 +16,8 @@ COPY . .
 RUN --mount=type=cache,target=/usr/local/cargo/registry \
     --mount=type=cache,target=/app/target \
     --mount=type=ssh \
-    cargo build --release --bin videosrv --bin recserver \
-    && cp target/release/videosrv /usr/local/bin/ \
-    && cp target/release/recserver /usr/local/bin/
+    cargo build --release --bin videosrv \
+    && cp target/release/videosrv /usr/local/bin/ 
 
 
 # its important to use Ubuntu:focal here because libx264 was updated in newer versions and the may be

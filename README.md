@@ -12,7 +12,6 @@ this process makes video capture, recording and live streaming
 ## Config
 `video.yaml` 
 
-To add a new Rotoclear camera, in the `video.yaml` add its IP address under the "sources" add its name and ip address under the "sources" key in video.yaml. See an example [here](./video.yaml)
 
 
 ## API
