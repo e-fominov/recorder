@@ -36,7 +36,6 @@ RUN apt-get update \
 
 FROM gst-base as videosrv
 COPY --from=builder --link /usr/local/bin/videosrv /usr/local/bin/
-COPY --from=fltee --link /usr/local/bin/fltee /usr/local/bin/
 COPY static /app/static/
 WORKDIR /app
 CMD videosrv --port ${VIDEO_SERVER_PORT}
